@@ -6,7 +6,8 @@
 
 :root {
   --text-color: white;
-  --bg-url: url(./assets/bg-mobile.jpg);
+  --bg-url: linear-gradient(-45deg, #52316D, #272F49, #13171B, #4B1748, #b538ac);
+  /*--bg-url: url(./assets/bg-mobile.jpg);*/
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -16,16 +17,19 @@
 
 .light {
   --text-color: black;
-  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --bg-url: linear-gradient(#e66465, #9198e5);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(255, 255, 255, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/sun.svg);
 }
+
 body {
   background: var(--bg-url) no-repeat top center/cover;
+  background-size: 400% 400%;
   height: 100vh;
+  animation: gradient 15s ease infinite;
 }
 
 body * {
@@ -132,7 +136,11 @@ ul li a {
   text-decoration: none;
   font-weight: 500;
 
-  transition: background 0.2s;
+  transition: background 0.2s!important;
+}
+
+ul li a{
+  transition: all .2s ease-in;
 }
 
 /*pseudo-selector*/
@@ -162,6 +170,7 @@ ul li a:hover {
 
 #social-links a:hover {
   background: var(--highlight-color);
+  transform: scale(1.3);
 }
 
 footer {
@@ -173,11 +182,11 @@ footer {
 /* media queries */
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/bg-desktop.jpg);
+    --bg-url: linear-gradient(-45deg,  #b538ac, #52316D, #272F49, #13171B, #4B1748);
   }
 
   .light {
-    --bg-url: url(./assets/bg-desktop-light.jpg);
+    --bg-url: linear-gradient(#e66465, #9198e5);
   }
 }
 
@@ -198,4 +207,16 @@ footer {
   to {
     left: 0;
   }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
